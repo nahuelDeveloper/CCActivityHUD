@@ -926,7 +926,9 @@
 - (void)communalShowTask {
     [self addOverlay];
     
-    [[[UIApplication sharedApplication].windows lastObject] addSubview:self];
+    // Replaced lastObject for firstObject, due to unexpected 'UIInteractiveHighlightEffectWindow' that appears as lastObject.
+    [[[UIApplication sharedApplication].windows firstObject] addSubview:self];
+    
     [self.superview bringSubviewToFront:self];
     
     [self addAppearAnimation];
